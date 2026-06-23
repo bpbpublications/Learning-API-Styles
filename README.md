@@ -4,7 +4,7 @@ A comprehensive guide for API design and developing microservices using Spring B
 
 This is the repository for [Learning API Styles](https://bpbonline.com/products/learning-api-styles?variant=45121738178760), published by BPB Publications. The code bundles of this book are available here: https://rebrand.ly/3da0d7
 
-<img src="9789365899382.jpg">
+<img src="9788169619141.jpg">
 
 ## About the Book
 Application programming interfaces are a key part of software development, enabling communication between applications and services. This book provides a practical understanding of API concepts, covering API design, API styles, API tools, microservices, security, and practical implementation approaches. 
