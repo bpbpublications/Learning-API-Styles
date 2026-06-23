@@ -1,0 +1,50 @@
+openapi: 3.0.3
+info:
+  title: Products API
+  description: API for retrieving products information.
+  version: 1.0.0
+
+servers:
+  - url: https://api.bpbapistyle.com
+    description: Production API server
+
+paths:
+  /products/{id}:
+    get:
+      summary: Get product
+      description: Retrieve product details by ID.
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: Unique product ID
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductsData'
+        '404':
+          description: Product not found
+
+components:
+  schemas:
+    ProductsData:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+          pattern: '^[a-zA-Z0-9_-]{3,50}$'
+        size:
+          type: integer
+        discount:
+          type: integer
+    required:
+      - name
+      - id
+      - size

@@ -1,0 +1,12 @@
+type Profile {
+    id: ID
+    name: String
+    email: String
+}
+
+type Query {
+    getUserProfileById(id: Int): Profile
+}
+type Mutation {
+    createUserProfile(id: Int!, name: String!, email: String!): Profile
+}

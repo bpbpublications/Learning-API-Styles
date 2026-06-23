@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://apistyle.pbp/soap"
+           xmlns:tns="http://apistyle.pbp/soap"
+           elementFormDefault="qualified">
+
+    <xs:element name="getProfilesRequest" type="tns:getProfilesRequest"/>
+    <xs:element name="getProfilesResponse" type="tns:getProfilesResponse"/>
+
+    <xs:complexType name="getProfilesRequest">
+        <xs:sequence/>
+    </xs:complexType>
+
+    <xs:complexType name="getProfilesResponse">
+        <xs:sequence>
+            <xs:element name="profile" type="tns:profile" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="profile">
+        <xs:sequence>
+            <xs:element name="id" type="xs:int"/>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="email" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

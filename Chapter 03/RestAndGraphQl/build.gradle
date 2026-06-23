@@ -1,0 +1,46 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.5.7'
+	id 'io.spring.dependency-management' version '1.1.7'
+//	id 'com.google.protobuf:protobuf-gradle-plugin:0.8.0'
+	//id 'io.grpc.java-plugin'  // Use the latest gRPC Java plugin version
+	//id 'com.google.protobuf'  // Use the latest Protobuf plugin version
+
+}
+
+group = 'com.apistyle'
+version = '0.0.1-SNAPSHOT'
+description = 'API style rest api exmaple'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+repositories {
+	mavenCentral()
+	gradlePluginPortal()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-graphql'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation "org.springframework.boot:spring-boot-starter-web:*"
+	implementation "net.devh:grpc-spring-boot-starter:2.14.0.RELEASE"
+	implementation'com.google.protobuf:protobuf-java'
+	implementation "io.grpc:grpc-netty-shaded:1.54.0"
+	implementation "io.grpc:grpc-protobuf:1.54.0"
+	implementation "io.grpc:grpc-stub:1.54.0"
+	implementation "com.google.protobuf:protobuf-java:3.22.2"
+
+   implementation  "io.springfox:springfox-swagger2:2.9.2"
+        implementation "io.springfox:springfox-swagger-ui:2.9.2"
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
