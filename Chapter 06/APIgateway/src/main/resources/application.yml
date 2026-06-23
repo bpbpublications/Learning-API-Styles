@@ -1,0 +1,37 @@
+server:
+  port: 8081
+logging:
+  level:
+    root: DEBUG
+spring:
+  application:
+    name: APIGateway
+  cloud:
+    gateway:
+      routes:
+        - id: product-service
+          uri: lb://products
+          predicates:
+            - Path=/products/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: productServiceCircuitBreaker
+                fallbackUri: forward:/fallback/products
+        - id: order-service
+          uri: lb://orders
+          predicates:
+            - Path=/order/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      orderServiceCircuitBreaker:
+        slidingWindowSize: 1
+        failureRateThreshold: 50
+        waitDurationInOpenState: 60s
+        permittedNumberOfCallsInHalfOpenState: 3
